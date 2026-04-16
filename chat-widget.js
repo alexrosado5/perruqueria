@@ -4,12 +4,11 @@
     // Create and inject styles
     const styles = `
         .n8n-chat-widget {
-        --chat--color-primary: #080808;
-        --chat--color-secondary: #C4963A;
-        --chat--color-accent: #E3BA6A;
-        --chat--color-background: #F2EAD8;
-        --chat--color-font: #111111;
-    }
+        --chat--color-primary: #FF8C42;
+        --chat--color-secondary: #FF6B35;
+        --chat--color-accent: #FFA366;
+        --chat--color-background: #FAFAFA;
+        --chat--color-font: #2C2C2C;
         font-family: 'Inter', 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
@@ -21,10 +20,10 @@
             display: none;
             width: 380px;
             height: 600px;
-            background: #F5F2EC;
+            background: #FFA366;
             border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(201, 164, 92, 0.2);
+            box-shadow: 0 8px 32px rgba(133, 79, 255, 0.15);
+            border: 1px solid rgba(133, 79, 255, 0.2);
             overflow: hidden;
             font-family: inherit;
         }
@@ -44,7 +43,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            border-bottom: 1px solid rgba(201, 164, 92, 0.15);
+            border-bottom: 1px solid rgba(133, 79, 255, 0.1);
             position: relative;
         }
 
@@ -168,13 +167,13 @@
             background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
             color: white;
             align-self: flex-end;
-            box-shadow: 0 4px 12px rgba(201, 164, 92, 0.25);
+            box-shadow: 0 4px 12px rgba(133, 79, 255, 0.2);
             border: none;
         }
 
         .n8n-chat-widget .chat-message.bot {
             background: var(--chat--color-background);
-            border: 1px solid rgba(201, 164, 92, 0.2);
+            border: 1px solid rgba(133, 79, 255, 0.2);
             color: var(--chat--color-font);
             align-self: flex-start;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -184,7 +183,7 @@
         .n8n-chat-widget .chat-input {
             padding: 16px;
             background: var(--chat--color-background);
-            border-top: 1px solid rgba(201, 164, 92, 0.15);
+            border-top: 1px solid rgba(133, 79, 255, 0.1);
             display: flex;
             gap: 8px;
         }
@@ -192,7 +191,7 @@
         .n8n-chat-widget .chat-input textarea {
             flex: 1;
             padding: 12px;
-            border: 1px solid rgba(201, 164, 92, 0.25);
+            border: 1px solid rgba(133, 79, 255, 0.2);
             border-radius: 8px;
             background: var(--chat--color-background);
             color: var(--chat--color-font);
@@ -233,7 +232,7 @@
             color: white;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(201, 164, 92, 0.35);
+            box-shadow: 0 4px 12px rgba(133, 79, 255, 0.3);
             z-index: 999;
             transition: transform 0.3s;
             display: flex;
@@ -268,7 +267,7 @@
         .n8n-chat-widget .typing-indicator span {
             width: 6px;
             height: 6px;
-            background: var(--chat--color-secondary);
+            background: var(--chat--color-primary);
             border-radius: 50%;
             display: inline-block;
             animation: typing-bounce 1.4s infinite both;
@@ -283,6 +282,93 @@
             50%  { transform: translateY(-4px); opacity: 1; }
             100% { transform: translateY(0); opacity: 0.3; }
         }
+    `;
+
+    // Load Geist font
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css';
+    document.head.appendChild(fontLink);
+
+    // Inject styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = styles;
+    document.head.appendChild(styleSheet);
+
+    // Default configuration
+    const defaultConfig = {
+        webhook: { url: '', route: '' },
+        branding: {
+            logo: '',
+            name: '',
+            welcomeText: '',
+            responseTimeText: ''
+        },
+        style: {
+            primaryColor: '',
+            secondaryColor: '',
+            position: 'right',
+            backgroundColor: '#ffffff',
+            fontColor: '#333333'
+        }
+    };
+
+    // Merge config
+    const config = window.ChatWidgetConfig ?
+        {
+            webhook: { ...defaultConfig.webhook, ...window.ChatWidgetConfig.webhook },
+            branding: { ...defaultConfig.branding, ...window.ChatWidgetConfig.branding },
+            style: { ...defaultConfig.style, ...window.ChatWidgetConfig.style }
+        }
+        : defaultConfig;
+
+    if (window.N8NChatWidgetInitialized) return;
+    window.N8NChatWidgetInitialized = true;
+
+    let currentSessionId = '';
+
+    const widgetContainer = document.createElement('div');
+    widgetContainer.className = 'n8n-chat-widget';
+
+    widgetContainer.style.setProperty('--n8n-chat-primary-color', config.style.primaryColor);
+    widgetContainer.style.setProperty('--n8n-chat-secondary-color', config.style.secondaryColor);
+    widgetContainer.style.setProperty('--n8n-chat-background-color', config.style.backgroundColor);
+    widgetContainer.style.setProperty('--n8n-chat-font-color', config.style.fontColor);
+
+    const chatContainer = document.createElement('div');
+    chatContainer.className = `chat-container${config.style.position === 'left' ? ' position-left' : ''}`;
+
+    const newConversationHTML = `
+        <div class="brand-header">
+            <img src="${config.branding.logo}" alt="${config.branding.name}">
+            <span>${config.branding.name}</span>
+            <button class="close-button">×</button>
+        </div>
+        <div class="new-conversation">
+            <h2 class="welcome-text">${config.branding.welcomeText}</h2>
+            <button class="new-chat-btn">
+                <svg class="message-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>
+                </svg>
+                Envíanos un mensaje
+            </button>
+            <p class="response-text">${config.branding.responseTimeText}</p>
+        </div>
+    `;
+
+    const chatInterfaceHTML = `
+        <div class="chat-interface">
+            <div class="brand-header">
+                <img src="${config.branding.logo}" alt="${config.branding.name}">
+                <span>${config.branding.name}</span>
+                <button class="close-button">×</button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <textarea placeholder="Escribe tu mensaje aquí..." rows="1"></textarea>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
     `;
 
     chatContainer.innerHTML = newConversationHTML + chatInterfaceHTML;
