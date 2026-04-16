@@ -70,7 +70,7 @@
         }
 
         .n8n-chat-widget .brand-header img {
-            width: 40px;
+            width: auto;
             height: 32px;
             object-fit: contain;
         }
