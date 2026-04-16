@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Primary -->
+  <title>NOIR Studio | Perruqueria d'alta qualitat a Badalona</title>
+  <meta name="description" content="NOIR Studio — perruqueria professional a Badalona. Talls, coloració, tractaments capil·lars i més. Reserva la teva cita en línia fàcilment." />
+  <meta name="keywords" content="perruqueria badalona, peluqueria badalona, tall de cabell, coloració, tractaments capil·lars, reserva cita perruqueria" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://noirstudio.cat/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://noirstudio.cat/" />
+  <meta property="og:title" content="NOIR Studio | Perruqueria d'alta qualitat a Badalona" />
+  <meta property="og:description" content="L'espai on el teu cabell es converteix en art. Reserva la teva cita ara." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema.org Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "NOIR Studio",
+    "description": "Perruqueria professional d'alta qualitat a Badalona",
+    "url": "https://noirstudio.cat",
+    "telephone": "+34-930-000-000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer de l'Exemple, 00",
+      "addressLocality": "Badalona",
+      "addressRegion": "Barcelona",
+      "postalCode": "08911",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.4501,
+      "longitude": 2.2474
+    },
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"18:00"}
+    ],
+    "priceRange": "€€",
+    "servesCuisine": null
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #080808;
+      --deep: #111111;
+      --card: #161616;
+      --gold: #C4963A;
+      --gold-light: #E3BA6A;
+      --cream: #F2EAD8;
+      --muted: #888880;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      transition: background .4s, backdrop-filter .4s;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(196,150,58,.12);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: .18em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: .55rem 1.4rem;
+      font-weight: 500 !important;
+      transition: background .25s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 4rem 6rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1800&q=85') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(8,8,8,.1) 0%,
+        rgba(8,8,8,.55) 45%,
+        rgba(8,8,8,.92) 100%
+      );
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .72rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp .8s .2s forwards;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--gold);
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4.5rem, 10vw, 9rem);
+      line-height: .92;
+      letter-spacing: .02em;
+      color: var(--cream);
+      opacity: 0;
+      animation: fadeUp .9s .4s forwards;
+    }
+    h1 em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+      display: block;
+    }
+    .hero-sub {
+      margin-top: 1.8rem;
+      font-size: 1rem;
+      color: rgba(242,234,216,.65);
+      max-width: 420px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp .9s .6s forwards;
+    }
+    .hero-actions {
+      margin-top: 2.8rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp .9s .8s forwards;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.4rem;
+      transition: background .25s, transform .25s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      color: var(--cream);
+      text-decoration: none;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(242,234,216,.3);
+      padding-bottom: 2px;
+      transition: color .25s, border-color .25s;
+    }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem; right: 4rem;
+      writing-mode: vertical-rl;
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      z-index: 2;
+      animation: fadeUp 1s 1.2s both;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px; height: 50px;
+      background: linear-gradient(var(--gold), transparent);
+      animation: lineGrow 1.5s 1.5s both;
+    }
+
+    /* ── STRIP ── */
+    .strip {
+      background: var(--gold);
+      padding: .9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .strip-inner {
+      display: inline-flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+    }
+    .strip-item {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .14em;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+    .strip-item span { opacity: .45; margin-right: 3rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .68rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: .04em;
+      color: var(--cream);
+    }
+    h2 em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--deep); }
+    .services-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+    }
+    .service-card {
+      background: var(--card);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width .4s ease;
+    }
+    .service-card:hover::before { width: 100%; }
+    .service-card:hover { background: #1a1a1a; }
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: rgba(196,150,58,.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+      transition: color .3s;
+    }
+    .service-card:hover .service-num { color: rgba(196,150,58,.22); }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: .6rem;
+    }
+    .service-desc {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    .service-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 1.4rem; right: -1.4rem;
+      inset-block: 1.4rem;
+      width: calc(100% - 1.4rem);
+      border: 1px solid rgba(196,150,58,.35);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 2rem; left: -2rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.4rem 1.8rem;
+      text-align: center;
+    }
+    .badge-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      display: block;
+    }
+    .badge-txt {
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .about-text p {
+      font-size: .95rem;
+      color: rgba(242,234,216,.7);
+      line-height: 1.85;
+      margin-top: 1.6rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.8rem;
+    }
+    .stat {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.2rem;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .3rem;
+    }
+
+    /* ── GALLERY SCROLL ── */
+    #gallery { padding: 6rem 0; overflow: hidden; }
+    #gallery h2 { padding: 0 4rem 3rem; }
+    .gallery-track {
+      display: flex;
+      gap: 1.2rem;
+      padding: 0 4rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .gallery-track:active { cursor: grabbing; }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-item {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%);
+      transition: filter .4s, transform .4s;
+    }
+    .gallery-item:hover img { filter: grayscale(0); transform: scale(1.02); }
+    .gallery-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: .9rem;
+      color: var(--muted);
+      padding-top: .7rem;
+    }
+
+    /* ── BOOKING ── */
+    #reserva {
+      background: var(--deep);
+      text-align: center;
+    }
+    #reserva h2 { margin: 0 auto; max-width: 700px; }
+    #reserva p {
+      color: var(--muted);
+      margin: 1.4rem auto 0;
+      max-width: 420px;
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+    .booking-form {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 1px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .form-field {
+      background: var(--card);
+      display: flex;
+      flex-direction: column;
+      padding: 1.2rem 1.6rem;
+    }
+    .form-field label {
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+    .form-field select,
+    .form-field input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+    .form-field select option { background: var(--card); color: var(--cream); }
+    .btn-book {
+      background: var(--gold);
+      border: none;
+      color: var(--black);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .12em;
+      padding: 0 2.8rem;
+      cursor: pointer;
+      transition: background .25s;
+    }
+    .btn-book:hover { background: var(--gold-light); }
+    .booking-note {
+      margin-top: 1.2rem;
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--black); }
+    .reviews-grid {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+    }
+    .review {
+      background: var(--card);
+      padding: 2.2rem;
+    }
+    .stars { color: var(--gold); font-size: .9rem; letter-spacing: .1em; margin-bottom: 1rem; }
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(242,234,216,.8);
+    }
+    .review-author {
+      margin-top: 1.4rem;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── CONTACT / FOOTER ── */
+    footer {
+      background: var(--deep);
+      padding: 5rem 4rem 2.5rem;
+      border-top: 1px solid rgba(196,150,58,.12);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    .footer-brand p {
+      margin-top: 1rem;
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 240px;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: .18em;
+      color: var(--cream);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-col h4 {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .7rem; }
+    .footer-col ul a {
+      font-size: .83rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-col address {
+      font-style: normal;
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+    .social-row { display: flex; gap: 1.2rem; }
+    .social-row a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .social-row a:hover { color: var(--gold); }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.6rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.6rem; }
+      #hero { padding: 0 1.6rem 4.5rem; }
+      #about { grid-template-columns: 1fr; }
+      .about-img-wrap::after { display: none; }
+      .booking-form { grid-template-columns: 1fr; }
+      .btn-book { padding: 1.2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" role="navigation" aria-label="Navegació principal">
+  <a href="#" class="nav-logo" aria-label="NOIR Studio inici">NOIR<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Serveis</a></li>
+    <li><a href="#about">Nosaltres</a></li>
+    <li><a href="#gallery">Galeria</a></li>
+    <li><a href="#testimonials">Opinions</a></li>
+    <li><a href="#reserva" class="nav-cta">Reservar cita</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header id="hero" role="banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Perruqueria · Badalona</p>
+    <h1>El teu cabell,<em>la nostra art.</em></h1>
+    <p class="hero-sub">Transformem cada visita en una experiència única. Professionals apassionats pel detall i la bellesa autèntica.</p>
+    <div class="hero-actions">
+      <a href="#reserva" class="btn-primary">Reservar cita</a>
+      <a href="#services" class="btn-ghost">Veure serveis →</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Scroll</div>
+</header>
+<!-- Configuración del Widget -->
+<script>
+  window.ChatWidgetConfig = {
+      webhook: {
+          url: "https://n8n.srv1186223.hstgr.cloud/webhook/dfc6baa1-48c5-4e17-ac80-dab463249594/chat",
+          route: "general"
+      },
+      branding: {
+          logo: "https://raw.githubusercontent.com/alexrosado5/Chatbot/main/avatar%20copy.png",
+          name: "EnTuPunto",
+          welcomeText: "Hola, ¿en qué puedo ayudarte hoy?",
+          responseTimeText: "Solemos responder bastante rápido...",
+          poweredBy: {
+              text: "",
+              link: ""
+          }
+      },
+      style: {
+          primaryColor: "#ff8000",       // Naranja elegante
+          secondaryColor: "#ff8000",    // Negro suave
+          position: "right",
+          backgroundColor: "#ffffff",
+          fontColor: "#333333"
+      }
+  };
+</script>
+<!-- Carga del Widget personalizado --> 
+<script src="/Chatbot/chat-widget.js"></script>
+<!-- MARQUEE STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-inner">
+    <span class="strip-item">Tall & Estil <span>✦</span></span>
+    <span class="strip-item">Coloració Professional <span>✦</span></span>
+    <span class="strip-item">Tractaments Capil·lars <span>✦</span></span>
+    <span class="strip-item">Keratina & Alisats <span>✦</span></span>
+    <span class="strip-item">Nupcials & Esdeveniments <span>✦</span></span>
+    <span class="strip-item">Tall & Estil <span>✦</span></span>
+    <span class="strip-item">Coloració Professional <span>✦</span></span>
+    <span class="strip-item">Tractaments Capil·lars <span>✦</span></span>
+    <span class="strip-item">Keratina & Alisats <span>✦</span></span>
+    <span class="strip-item">Nupcials & Esdeveniments <span>✦</span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" aria-labelledby="services-title">
+  <div class="section-label">Els nostres serveis</div>
+  <h2 id="services-title">Tot el que <em>necessites</em></h2>
+  <div class="services-grid" role="list">
+
+    <article class="service-card reveal" role="listitem">
+      <div class="service-num">01</div>
+      <h3 class="service-name">Tall & Forma</h3>
+      <p class="service-desc">Talls personalitzats que s'adapten a la teva estructura facial i estil de vida. Inclou rentat i assecament professional.</p>
+      <div class="service-price">Des de 22 €</div>
+    </article>
+
+    <article class="service-card reveal" role="listitem">
+      <div class="service-num">02</div>
+      <h3 class="service-name">Coloració</h3>
+      <p class="service-desc">Tints, mèxes, balayage i highlights amb productes de primera qualitat. Colors vius, naturals o tendència.</p>
+      <div class="service-price">Des de 45 €</div>
+    </article>
+
+    <article class="service-card reveal" role="listitem">
+      <div class="service-num">03</div>
+      <h3 class="service-name">Keratina & Alisats</h3>
+      <p class="service-desc">Tractaments alisants duradors que eliminen el frizz i aporten brillantor i suavitat extremes.</p>
+      <div class="service-price">Des de 80 €</div>
+    </article>
+
+    <article class="service-card reveal" role="listitem">
+      <div class="service-num">04</div>
+      <h3 class="service-name">Tractaments</h3>
+      <p class="service-desc">Hidratació profunda, reparació de puntes i màscares capil·lars per recuperar la salut del teu cabell.</p>
+      <div class="service-price">Des de 28 €</div>
+    </article>
+
+    <article class="service-card reveal" role="listitem">
+      <div class="service-num">05</div>
+      <h3 class="service-name">Pentinat & Nupcial</h3>
+      <p class="service-desc">Pentinats per a noces, cerimònies i esdeveniments especials. Proves prèvies disponibles.</p>
+      <div class="service-price">Des de 55 €</div>
+    </article>
+
+    <article class="service-card reveal" role="listitem">
+      <div class="service-num">06</div>
+      <h3 class="service-name">Pack Complet</h3>
+      <p class="service-desc">Tall + color + tractament. La nostra proposta integral per a una transformació total amb estalvi garantit.</p>
+      <div class="service-price">Des de 95 €</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-title">
+  <div class="about-img-wrap reveal">
+    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=85" alt="Professional del NOIR Studio treballant amb un client" loading="lazy" />
+    <div class="about-badge">
+      <span class="badge-num">10+</span>
+      <span class="badge-txt">anys d'experiència</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <div class="section-label">Qui som</div>
+    <h2 id="about-title">Passió per <em>cada detall</em></h2>
+    <p>Al NOIR Studio creiem que un bon tall va molt més enllà de les tisores. És una conversa, una escolta activa i una expressió de la teva personalitat. El nostre equip de professionals porta més d'una dècada transformant cabells i autoestimes.</p>
+    <p>Treballem amb productes premium i formació contínua per oferir-te sempre les últimes tècniques i tendències del sector.</p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">2.000+</div>
+        <div class="stat-label">Clients satisfets</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Valoració mitjana</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Professionals</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Productes Premium</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" aria-labelledby="gallery-title">
+  <div style="padding:0 4rem">
+    <div class="section-label">Galeria</div>
+    <h2 id="gallery-title">El nostre <em>treball</em></h2>
+  </div>
+  <div class="gallery-track" id="galleryTrack" role="list">
+    <div class="gallery-item reveal" role="listitem">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Tall de cabell modern" loading="lazy" />
+      <p class="gallery-caption">Tall modern & textura</p>
+    </div>
+    <div class="gallery-item reveal" role="listitem">
+      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Coloració balayage" loading="lazy" />
+      <p class="gallery-caption">Balayage natural</p>
+    </div>
+    <div class="gallery-item reveal" role="listitem">
+      <img src="https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=600&q=80" alt="Pentinat professional" loading="lazy" />
+      <p class="gallery-caption">Estilisme professional</p>
+    </div>
+    <div class="gallery-item reveal" role="listitem">
+      <img src="https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=600&q=80" alt="Coloració vermella" loading="lazy" />
+      <p class="gallery-caption">Color & vivacitat</p>
+    </div>
+    <div class="gallery-item reveal" role="listitem">
+      <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="Tractament capil·lar" loading="lazy" />
+      <p class="gallery-caption">Tractament & hidratació</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="reserva" aria-labelledby="reserva-title">
+  <div class="section-label" style="justify-content:center">Reserva en línia</div>
+  <h2 id="reserva-title">Reserva la teva <em>cita ara</em></h2>
+  <p>Tria el servei, la data i l'hora. En pocs segons tindràs la teva cita confirmada.</p>
+
+  <div class="booking-form" role="form" aria-label="Formulari de reserva">
+    <div class="form-field">
+      <label for="servei">Servei</label>
+      <select id="servei" name="servei" aria-label="Selecciona un servei">
+        <option>Tall & Forma</option>
+        <option>Coloració</option>
+        <option>Keratina & Alisat</option>
+        <option>Tractament</option>
+        <option>Pentinat Nupcial</option>
+        <option>Pack Complet</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="data">Data</label>
+      <input type="date" id="data" name="data" aria-label="Selecciona una data" />
+    </div>
+    <div class="form-field">
+      <label for="hora">Hora</label>
+      <select id="hora" name="hora" aria-label="Selecciona una hora">
+        <option>09:00</option><option>09:30</option>
+        <option>10:00</option><option>10:30</option>
+        <option>11:00</option><option>11:30</option>
+        <option>12:00</option><option>16:00</option>
+        <option>16:30</option><option>17:00</option>
+        <option>17:30</option><option>18:00</option>
+        <option>18:30</option><option>19:00</option>
+      </select>
+    </div>
+    <button class="btn-book" onclick="handleBooking()" type="button" aria-label="Confirmar reserva">Reservar</button>
+  </div>
+  <p class="booking-note">✦ Confirmació immediata per WhatsApp · Sense càrrec per cancel·lar fins 24h abans</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" aria-labelledby="reviews-title">
+  <div class="section-label">Opinions</div>
+  <h2 id="reviews-title">El que diuen <em>les nostres clientes</em></h2>
+  <div class="reviews-grid">
+
+    <article class="review reveal">
+      <div class="stars" aria-label="5 estrelles">★★★★★</div>
+      <blockquote class="review-text">"Mai havia sortit d'una perruqueria tan contenta. El resultat va superar totes les meves expectatives. Repeteixo segur!"</blockquote>
+      <p class="review-author">— Marta G., Badalona</p>
+    </article>
+
+    <article class="review reveal">
+      <div class="stars" aria-label="5 estrelles">★★★★★</div>
+      <blockquote class="review-text">"El balayage que em van fer és espectacular. Molt professional i tracte excel·lent durant tot el procés."</blockquote>
+      <p class="review-author">— Laura P., Barcelona</p>
+    </article>
+
+    <article class="review reveal">
+      <div class="stars" aria-label="5 estrelles">★★★★★</div>
+      <blockquote class="review-text">"Vaig venir per al meu casament i el resultat va ser increïble. El pentinat va aguantar tota la nit. 100% recomanable."</blockquote>
+      <p class="review-author">— Sara M., Badalona</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">NOIR<span>.</span></div>
+      <p>L'espai on el teu cabell es converteix en art. Professionals apassionats per la bellesa autèntica a Badalona.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serveis</h4>
+      <ul>
+        <li><a href="#services">Tall & Forma</a></li>
+        <li><a href="#services">Coloració</a></li>
+        <li><a href="#services">Keratina</a></li>
+        <li><a href="#services">Tractaments</a></li>
+        <li><a href="#services">Nupcial</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Horaris</h4>
+      <ul>
+        <li><a href="#">Dll–Div: 9:00–20:00</a></li>
+        <li><a href="#">Dissabte: 9:00–18:00</a></li>
+        <li><a href="#">Diumenge: Tancat</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacte</h4>
+      <address>
+        Carrer de l'Exemple, 00<br>
+        08911 Badalona<br><br>
+        <a href="tel:+34930000000" style="color:var(--muted);text-decoration:none">+34 930 000 000</a><br>
+        <a href="mailto:info@noirstudio.cat" style="color:var(--muted);text-decoration:none">info@noirstudio.cat</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 NOIR Studio · Tots els drets reservats</span>
+    <div class="social-row">
+      <a href="#" aria-label="Instagram NOIR Studio">Instagram</a>
+      <a href="#" aria-label="Facebook NOIR Studio">Facebook</a>
+      <a href="#" aria-label="WhatsApp NOIR Studio">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Drag-scroll gallery
+  const track = document.getElementById('galleryTrack');
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => {
+    isDown = true; track.style.cursor = 'grabbing';
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
+  track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.4;
+  });
+
+  // Booking handler (placeholder per futura automació n8n)
+  function handleBooking() {
+    const servei = document.getElementById('servei').value;
+    const data   = document.getElementById('data').value;
+    const hora   = document.getElementById('hora').value;
+    if (!data) { alert('Si us plau, selecciona una data.'); return; }
+    // TODO: Connectar amb webhook n8n → Google Calendar + WhatsApp
+    const msg = encodeURIComponent(`Hola! Voldria reservar una cita:\n\n✦ Servei: ${servei}\n✦ Data: ${data}\n✦ Hora: ${hora}\n\nGràcies!`);
+    window.open(`https://wa.me/34930000000?text=${msg}`, '_blank');
+  }
+
+  // Set min date for booking input
+  const dateInput = document.getElementById('data');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+</script>
+
+</body>
+</html>
