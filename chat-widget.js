@@ -4,11 +4,11 @@
     // Create and inject styles
     const styles = `
         .n8n-chat-widget {
-        --chat--color-primary: #FF8C42;
-        --chat--color-secondary: #FF6B35;
-        --chat--color-accent: #FFA366;
-        --chat--color-background: #FAFAFA;
-        --chat--color-font: #2C2C2C;
+        --chat--color-primary: #080808;
+        --chat--color-secondary: #C4963A;
+        --chat--color-accent: #E3BA6A;
+        --chat--color-background: #F2EAD8;
+        --chat--color-font: #111111;
         font-family: 'Inter', 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
 
