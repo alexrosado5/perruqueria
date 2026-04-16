@@ -4,8 +4,8 @@
     // Create and inject styles
     const styles = `
         .n8n-chat-widget {
-        --chat--color-primary: #FF8C42;
-        --chat--color-secondary: #FF6B35;
+        --chat--color-primary: #0B0B0C;
+        --chat--color-secondary: #C9A45C;
         --chat--color-accent: #FFA366;
         --chat--color-background: #FAFAFA;
         --chat--color-font: #2C2C2C;
